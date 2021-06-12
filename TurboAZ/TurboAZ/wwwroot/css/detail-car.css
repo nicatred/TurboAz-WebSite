@@ -1,0 +1,50 @@
+﻿#car-photos{
+    background-color: #323232;
+}
+.detail-photo {
+    background-color: #323232;    
+    margin-right: 150px;
+    margin-bottom:30px;
+    display:inline;
+}
+.detail-photo-main {
+    background-color: #323232;
+    float: left;
+    margin-left: 10px;
+    display:inline;
+}
+.detail-photo :hover {
+    background-color: aquamarine;
+}
+.detail-photo-main:hover {
+    background-color: aquamarine;
+}
+.detail-car-info-div {
+    background-color: #e3f2f9;
+    padding:25px;
+}
+.detail-car-price {
+    padding: 25px 50px;
+    background-color: #c71b25;
+    margin:0px;
+    color :wheat;
+    font-size:22px;
+    font-weight:bold;
+    display:inline-block;
+}
+.detail-car-title{
+    margin-top:-5px;
+    font-weight:bold;
+    font-size:32px;
+    display:inline-block;
+
+}
+.detail-car-title-info{
+    padding:10px;
+    margin-left:80px;
+    margin-top:10px;
+    display:inline-block;
+}
+#bools ul li{
+    list-style-type:disc;
+}

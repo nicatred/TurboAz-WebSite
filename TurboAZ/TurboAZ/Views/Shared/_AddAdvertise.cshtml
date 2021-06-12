@@ -1,0 +1,345 @@
+﻿@model FillSelectViewModel
+<div class="container">
+    <h5 style="font-weight: bold; margin-top:10px">ELAN YERLƏŞDİRMƏK</h5>
+    <hr id="head-line" />
+</div>
+<form method="post" asp-controller="Ads" asp-action="Save" enctype="multipart/form-data" >
+    <div id="add-number">
+        <h5 id="add-number-h">Siz<span>(070) 960-96-94</span>nömrəsindən elan yerləşdirirsiniz</h5>
+    </div>
+    <div class="container">
+
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Marka</label>
+            <div class="col-sm-4">
+                <select class="form-control" id="comboboxBrands" asp-for="Ad.BrandId" asp-items="@(new SelectList(Model.Brands,"BrandId","BrandName"))">
+                    <option value="-1">seçin</option>
+                </select>
+            </div>
+            <label class="col-sm-2 col-form-label">Yanacaq növü</label>
+            <div class="col-sm-4">
+                <select class="form-control" asp-for="Ad.FuelId" asp-items="@(new SelectList(Model.Fuels,"FuelId","FuelName"))">
+                    <option></option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Model</label>
+            <div class="col-sm-4">
+                <select class="form-control" id="comboboxModels" asp-for="Ad.ModelId">
+                    <option></option>
+                </select>
+            </div>
+            <label class="col-sm-2 col-form-label">Ötürücü</label>
+            <div class="col-sm-4">
+                <select class="form-control" asp-for="Ad.TransmissionId" asp-items="@(new SelectList(Model.Transmissions,"TransmissionId","TransmissionName"))" size="1">
+                    <option></option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Ban növü</label>
+            <div class="col-sm-4">
+                <select class="form-control" asp-for="Ad.BodyId" asp-items="@(new SelectList(Model.Bodies,"BodyId","BodyName"))" size="1">
+                    <option></option>
+                </select>
+            </div>
+            <label class="col-sm-2 col-form-label">Sürətlər qutusu</label>
+            <div class="col-sm-4">
+                <select class="form-control" asp-for="Ad.GearBoxId" asp-items="@(new SelectList(Model.GearBoxes,"GearBoxId","GearBoxName"))" size="1">
+                    <option></option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Yürüş, km</label>
+            <div class="col-sm-4">
+                <input type="number" class="form-control" min="10000" step="10000" asp-for="Ad.Walk" />
+
+            </div>
+            <label class="col-sm-2 col-form-label">Buraxılış ili</label>
+            <div class="col-sm-4">
+                <select class="form-control" asp-for="Ad.YearId" asp-items="@(new SelectList(Model.Years,"YearId","YearName"))" size="1">
+                    <option></option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Rəng</label>
+            <div class="col-sm-4">
+                <select class="form-control" asp-for="Ad.ColorId" asp-items="@(new SelectList(Model.Colors,"ColorId","ColorName"))" size="1">
+                    <option></option>
+                </select>
+            </div>
+            <label class="col-sm-2 col-form-label">Mühərrikin həcmi,sm<sup>3</sup></label>
+            <div class="col-sm-4">
+                <select class="form-control" asp-for="Ad.EngineVolumeId" asp-items="@(new SelectList(Model.EngineVolumes,"EngineVolumeId","EngineVolumeName"))" size="1">
+                    <option></option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-2 col-form-label">Qiymət</label>
+            <div class="col-sm-2">
+                <input type="number" class="form-control" min="500" asp-for="Ad.Price" />
+            </div>
+
+            @*@foreach (var item in Model.Valutes)
+        {
+                 <div class="form-check form-check-inline">
+
+                <input class="form-check-input" type="radio" name="valutes" value="@item.ValuteId" asp-for="Ad.ValuteId">
+                <label class="form-check-label" >@item.ValuteName</label>
+            </div>
+        }*@
+            <div>
+                @foreach (var item in ViewBag.Currencies)
+                {
+        <label class="form-check-label ml-1" for="@item.Value" style="margin-right:22px;">@item.Text</label>
+                <input  asp-for="Ad.ValuteId" class="form-check-input ml" type="radio" value="@item.Value" id="@item.Value">}
+            </div>
+
+
+
+
+            <label class="col-sm-2 col-form-label">Mühərrikin gücü,a.g.</label>
+            <div class="col-sm-4">
+                <input type="number" class="form-control" asp-for="Ad.Hp" />
+
+
+            </div>
+        </div>
+        <div class="form-group row" style="margin-left: 180px;">
+            <div class="form-check col-sm-6">
+                <input class="form-check-input col-sm-1" type="checkbox" value="" id="defaultCheck1" asp-for="Ad.CreditHave">
+                <label class="form-check-label col-md-11" for="defaultCheck1">
+                    Kreditdədir
+                </label>
+            </div>
+        </div>
+        <div class="form-group row " style="margin-left: 180px;">
+            <div class="form-check col-sm-6">
+                <input class="form-check-input col-sm-1" type="checkbox" value="true" id="defaultCheck2" asp-for="Ad.Barter">
+                <label class="form-check-label col-sm-11" for="defaultCheck2">
+                    Barter mümkündür
+                </label>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="txt-info" class="col-sm-2 col-form-label">Əlavə məlumat</label>
+            <textarea class="form-control col-sm-10" rows="5" asp-for="Ad.Note"></textarea>
+            <span id="info-span">telefon nömrələri qeyd etmək qadağandır</span>
+
+        </div>
+        <div class="form-group row">
+            <h5 style="font-weight: bold;">Avtomobilin təchizatı</h5>
+        </div>
+        <div class="form-group row">
+            <div class="form-check col-sm-3">
+                <input class="form-check-input col-sm-1" type="checkbox" value="true" id="defaultCheck2" asp-for="Ad.AlloyWheels">
+                <label class="form-check-label col-sm-11" for="defaultCheck2">
+                    Yüngül lehimli disklər
+                </label>
+            </div>
+            <div class="form-check col-sm-3">
+                <input class="form-check-input col-sm-1" type="checkbox" value="true" id="defaultCheck2" asp-for="Ad.Abs">
+                <label class="form-check-label col-sm-11" for="defaultCheck2" asp-for="Ad.Abs">
+                    ABS
+                </label>
+            </div>
+            <div class="form-check col-sm-3">
+                <input class="form-check-input col-sm-1" type="checkbox" value="true" id="defaultCheck2" asp-for="Ad.Lyuk">
+                <label class="form-check-label col-sm-11" for="defaultCheck2">
+                    Lyuk
+                </label>
+            </div>
+            <div class="form-check col-sm-3">
+                <input class="form-check-input col-sm-1" type="checkbox" value="true" id="defaultCheck2" asp-for="Ad.RainSensor">
+                <label class="form-check-label col-sm-11" for="defaultCheck2">
+                    Yağış sensoru
+                </label>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="form-check col-sm-3">
+                <input class="form-check-input col-sm-1" type="checkbox" value="true" id="defaultCheck2" asp-for="Ad.CentralClosure">
+                <label class="form-check-label col-sm-11" for="defaultCheck2">
+                    Mərkəzi qapanma
+                </label>
+            </div>
+            <div class="form-check col-sm-3">
+                <input class="form-check-input col-sm-1" type="checkbox" value="true" id="defaultCheck2" asp-for="Ad.ParkRadar">
+                <label class="form-check-label col-sm-11" for="defaultCheck2">
+                    Park radarı
+                </label>
+            </div>
+            <div class="form-check col-sm-3">
+                <input class="form-check-input col-sm-1" type="checkbox" value="true" id="defaultCheck2" asp-for="Ad.Conditioner">
+                <label class="form-check-label col-sm-11" for="defaultCheck2">
+                    Kondisioner
+                </label>
+            </div>
+            <div class="form-check col-sm-3">
+                <input class="form-check-input col-sm-1" type="checkbox" value="true" id="defaultCheck2" asp-for="Ad.SeatHeating">
+                <label class="form-check-label col-sm-11" for="defaultCheck2">
+                    Oturacaqların isidilməsi
+                </label>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="form-check col-sm-3">
+                <input class="form-check-input col-sm-1" type="checkbox" value="true" id="defaultCheck2" asp-for="Ad.LeatherSalon">
+                <label class="form-check-label col-sm-11" for="defaultCheck2">
+                    Dəri salon
+                </label>
+            </div>
+            <div class="form-check col-sm-3">
+                <input class="form-check-input col-sm-1" type="checkbox" value="true" id="defaultCheck2" asp-for="Ad.XenonLamps">
+                <label class="form-check-label col-sm-11" for="defaultCheck2">
+                    Ksenon lampalar
+                </label>
+            </div>
+            <div class="form-check col-sm-3">
+                <input class="form-check-input col-sm-1" type="checkbox" value="true" id="defaultCheck2" asp-for="Ad.RearCamera">
+                <label class="form-check-label col-sm-11" for="defaultCheck2">
+                    Arxa görüntü kamerası
+                </label>
+            </div>
+            <div class="form-check col-sm-3">
+                <input class="form-check-input col-sm-1" type="checkbox" value="true" id="defaultCheck2" asp-for="Ad.SideCurtains" />
+                <label class="form-check-label col-sm-11" for="defaultCheck2">
+                    Yan pərdələr
+                </label>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="form-check col-sm-3">
+                <input class="form-check-input col-sm-1" type="checkbox" value="true" id="defaultCheck2" asp-for="Ad.SeatVent">
+                <label class="form-check-label col-sm-11" for="defaultCheck2">
+                    Oturacaqların ventiliyasiyası
+                </label>
+            </div>
+        </div>
+        <div class="form-group row">
+            <h5 style="font-weight: bold;">Şəkillər</h5>
+        </div>
+        <div class="form-group row ">
+            <div id="add-img">
+                <div id="add-img-txt" class="col-sm-4">
+                    <ul>
+                        <li>- Minimum – 3 şəkil (ön, arxa və bütöv ön panelin görüntüsü mütləqdir).</li>
+                        <li>- Maksimum – 21 şəkil.</li>
+                        <li>- Optimal ölçü – 1024x768 piksel.</li>
+                    </ul>
+                </div>
+
+                <div id="img-front" class="add-img-card" style="margin-left: 87px;">
+                    <label for="image-upload1">
+                        <img src="/img/front.png" asp-append-version="true" onclick="" />
+                    </label>
+                    <input id="image-upload1" asp-for="Ad.ImageFile" hidden />
+                </div>
+                <div id="img-back" class="add-img-card">
+                    <label for="image-upload2">
+                        <img src="/img/back.png" asp-append-version="true">
+                    </label>
+                    <input type="file" id="image-upload2" asp-for="Ad.ImageFile" hidden />
+                </div>
+                <div id="img-inside" class="add-img-card">
+                    <label for="image-upload3">
+                        <img src="/img/inside.png" asp-append-version="true">
+                    </label>
+                    <input type="file" id="image-upload3" asp-for="Ad.ImageFile" hidden />
+                </div>
+                <div id="img-plus" class="add-img-card">
+                    <label for="image-upload4">
+                        <img src="/img/plus.png" asp-append-version="true">
+                    </label>
+                    <input type="file" id="image-upload4" asp-for="Ad.ImageFile" hidden />
+                </div>
+
+            </div>
+        </div>
+        <div class="form-group row ">
+            <ul class="img-rules col-sm-6">
+                <li>Şəkillər Azərbaycan Respublikasının ərazisində çəkilməlidir.</li>
+                <li>
+                    Şəkillər yaxşı keyfiyyətdə olmalıdır. Nəqliyyat vasitəsi yaxşı
+                    işıqlandırılmış olmalı, şəkillərin üzərində loqotip və digər yazılar
+                    olmamalıdır. Skrinşotlar qəbul olunmur.
+                </li>
+            </ul>
+            <ul class="img-rules col-sm-6">
+                <li>
+                    Avtosalonda çəkilmiş şəkillər qeydiyyatdan keçmiş avtosalonun hesabından уerləşdirilməlidir.
+                </li>
+                <li>
+                    Şəxsi sahibi tərəfindən satılan nəqliyyat vasitəsinin şəkli
+                    avtosalon/rəsmi servis ərazisində və ya yaxınlığında çəkilməməlidir.
+                </li>
+            </ul>
+        </div>
+        <div class="form-group row ">
+            <h5 style="font-weight: bold;">Əlaqə</h5>
+        </div>
+
+        <div class="form-group row col-sm-6">
+            <label for="input-name" class="col-sm-2 col-form-label">Adınız</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="input-name" asp-for="Ad.Name">
+            </div>
+        </div>
+        <div class="form-group row col-sm-6">
+            <label for="input-city" class="col-sm-2 col-form-label" style="margin-right: 15px;">Şəhər</label>
+            <select class="col-sm-9" id="input-city" asp-items="@(new SelectList(Model.Cities,"CityId","CityName"))" size="1" asp-for="Ad.CityId">
+                <option></option>
+            </select>
+        </div>
+        <div class="form-group row col-sm-61">
+            <label for="input-mail" class="col-sm-2 col-form-label">E-poçt</label>
+            <div class="col-sm-10">
+                <input type="mail" class="form-control" id="input-mail" asp-for="Ad.Email">
+            </div>
+        </div>
+       
+
+
+
+
+
+
+
+        <button type="submit" class="btn btn-primary">Sign in</button>
+
+
+    </div>
+</form>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script>
+        $(document).ready(function () {
+            $('#comboboxBrands').on('change', function () {
+                $('#comboboxModels option').remove();
+                var brandId = $('#comboboxBrands option:selected').val();
+                if (brandId != -1) {
+                    $.ajax({
+                        type: 'Get',
+                        url: '@Url.Action("GetModels","Ads")/?brandId=' + brandId,
+                        success: function (result) {
+                            var s = '<option value="-1">Select a Model</option>';
+                            for (var i = 0; i < result.length; i++) {
+                                s += '<option value="' + result[i].id + '">' + result[i].name + '</option>';
+                            }
+                            $('#comboboxModels').html(s);
+                        }
+                    });
+                }
+               
+            });
+        });
+</script>
+
+@section scripts{
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/additional-methods.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}

@@ -1,0 +1,12 @@
+﻿.section-title {
+    display: flex;
+    align-items: center;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    overflow: hidden;
+    height: 60px;
+    padding: 0 20px;
+    box-sizing: border-box;
+    background-color: #fff;
+    border-bottom: 1px solid #efefef;
+}

@@ -1,0 +1,104 @@
+﻿@model List<HomeAdViewModel>
+<form method="post">
+    <div class="thirdNav">
+
+        <ul>
+            <li>
+                <select class="input-normal" id="comboboxBrands" asp-for="@Model.FirstOrDefault().fillSelectViewModel.Ad.BrandId" asp-items="@(new SelectList(@Model.FirstOrDefault().fillSelectViewModel.Brands,"BrandId","BrandName"))">
+                    <option selected>Bütün markalar</option>
+                </select>
+            </li>
+            <li>
+                <select class="input-normal" asp-for="@Model.FirstOrDefault().fillSelectViewModel.Ad.ModelId" id="comboboxModels">
+                    <option>Bütün modellər</option>
+                </select>
+            </li>
+        </ul>
+        <ul>
+            <li id="Cost">
+                <label class="price">Qiymət</label>
+                <select class="currency"  asp-for="@Model.FirstOrDefault().fillSelectViewModel.Ad.ValuteId" asp-items="@(new SelectList(@Model.FirstOrDefault().fillSelectViewModel.Valutes,"ValuteId","ValuteName"))">
+                <option value="1">AZN</option>
+                </select>
+        @*<select class="currency">
+            <option>AZN</option>
+            <option>USD</option>
+            <option>EUR</option>
+        </select>*@
+                <input class="input-number-min" type="text" id="number" name="number" placeholder="min.">
+                <input class="input-number-max" type="text" id="number" name="number" placeholder="maks.">
+            </li>
+            <li>
+                <label class="year">Buraxılış ili</label>
+                <input class="input-number-min2" type="text" id="number" name="number" placeholder="min.">
+                <input class="input-number-max2" type="text" id="number" name="number" placeholder="maks.">
+            </li>
+        </ul>
+
+        <ul>
+            <li>
+                <div class="form-check" id="div-credit">
+                    <label class="form-check-label" for="check-credit" id="label-credit">
+                        Kredit<input class="form-check-input" type="checkbox" value="" id="check-credit" checked>
+                    </label>
+                </div>
+            </li>
+            <li>
+                <div class="form-check" id="div-barter">
+                    <label class="form-check-label" for="check-barter" id="label-barter">
+                        Barter<input class="form-check-input" type="checkbox" value="" id="check-barter" checked>
+                    </label>
+                </div>
+            </li>
+
+        </ul>
+
+
+        <ul>
+            <li>
+                <select class="input-normal" asp-items="@(new SelectList(@Model.FirstOrDefault().fillSelectViewModel.Cities,"CityId","CityName"))" size="1" asp-for="@Model.FirstOrDefault().fillSelectViewModel.Ad.CityId">
+                    <option>Bütün şəhərlər</option>
+                </select>
+            </li>
+            <li>
+                <div id="count-div"> <a id="count-addvertise">@ViewBag.AddCount</a></div>
+            </li>
+        </ul>
+
+
+        <ul>
+            <li>
+                <button id="button-search" type="button">Axtar</button>
+            </li>
+            <li>
+                <input id="button-search-all" type="submit" asp-controller="Detail" asp-action="Index" value="Ətraflı axtarış">
+            </li>
+        </ul>
+
+
+
+    </div>
+</form>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script>
+        $(document).ready(function () {
+            $('#comboboxBrands').on('change', function () {
+                $('#comboboxModels option').remove();
+                var brandId = $('#comboboxBrands option:selected').val();
+                if (brandId != -1) {
+                    $.ajax({
+                        type: 'Get',
+                        url: '@Url.Action("GetModels","Ads")/?brandId=' + brandId,
+                        success: function (result) {
+                            var s = '<option value="-1">Select a Model</option>';
+                            for (var i = 0; i < result.length; i++) {
+                                s += '<option value="' + result[i].id + '">' + result[i].name + '</option>';
+                            }
+                            $('#comboboxModels').html(s);
+                        }
+                    });
+                }
+
+            });
+        });
+</script>

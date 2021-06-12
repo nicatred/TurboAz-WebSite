@@ -1,0 +1,12 @@
+C:\Users\Nijatred\source\repos\TurboAZ\TurboAZ.Entity\bin\Debug\net5.0\TurboAZ.Entity.deps.json
+C:\Users\Nijatred\source\repos\TurboAZ\TurboAZ.Entity\bin\Debug\net5.0\TurboAZ.Entity.dll
+C:\Users\Nijatred\source\repos\TurboAZ\TurboAZ.Entity\bin\Debug\net5.0\ref\TurboAZ.Entity.dll
+C:\Users\Nijatred\source\repos\TurboAZ\TurboAZ.Entity\bin\Debug\net5.0\TurboAZ.Entity.pdb
+C:\Users\Nijatred\source\repos\TurboAZ\TurboAZ.Entity\obj\Debug\net5.0\TurboAZ.Entity.csprojAssemblyReference.cache
+C:\Users\Nijatred\source\repos\TurboAZ\TurboAZ.Entity\obj\Debug\net5.0\TurboAZ.Entity.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Nijatred\source\repos\TurboAZ\TurboAZ.Entity\obj\Debug\net5.0\TurboAZ.Entity.AssemblyInfoInputs.cache
+C:\Users\Nijatred\source\repos\TurboAZ\TurboAZ.Entity\obj\Debug\net5.0\TurboAZ.Entity.AssemblyInfo.cs
+C:\Users\Nijatred\source\repos\TurboAZ\TurboAZ.Entity\obj\Debug\net5.0\TurboAZ.Entity.csproj.CoreCompileInputs.cache
+C:\Users\Nijatred\source\repos\TurboAZ\TurboAZ.Entity\obj\Debug\net5.0\TurboAZ.Entity.dll
+C:\Users\Nijatred\source\repos\TurboAZ\TurboAZ.Entity\obj\Debug\net5.0\ref\TurboAZ.Entity.dll
+C:\Users\Nijatred\source\repos\TurboAZ\TurboAZ.Entity\obj\Debug\net5.0\TurboAZ.Entity.pdb

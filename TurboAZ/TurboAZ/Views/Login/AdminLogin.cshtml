@@ -1,0 +1,30 @@
+﻿@model AdminLoginModelView
+<div class="section-title section-title_top">
+    <div class="lotriver-text-banner" id="js-lotriver-text-banner">
+        <div style="visibility:hidden;height:0px;left:-1000px;position:absolute;"><iframe id="ar_container_2" width="1" height="1" marginwidth="0" marginheight="0" scrolling="no" frameborder="0"></iframe></div><div id="ad_ph_2" style="display: block; width: 100%; height: 30px;"><div style="display:block;width:435px;height:100%;margin:0 auto;line-height:100%;text-align:center;"><iframe id="ar_cr_2338822" width="100%" height="100%" marginwidth="0" marginheight="0" scrolling="no" vspace="0" hspace="0" frameborder="0" src="https://servers1.adriver.ru/images/0007218/0007218806/0/kapital_desc9.html?html_params=target%3D_blank%26rhost%3Dad.adriver.ru%26bid%3D7218806%26sid%3D220552%26width%3D435%26height%3D30%26rnd%3D381283991%26pz%3D0%26ad%3D720250%26bt%3D43%26bn%3D8%26ar_sliceid%3D2759043%26ntype%3D0%26nid%3D0%26ar_geoid%3D378%26xpid%3DD-BUbmU9Og2A4y7hHusF7s1XePIGeTqneBM5CT8jD-3D3InXaFuByzKaZWmXo09IqvHJki5NOV5n1yT56s35Kk-TSQcwZ1g%26url%3Dhttps%253A//ad.adriver.ru/cgi-bin/click.cgi%253Fsid%253D220552%2526ad%253D720250%2526bid%253D7218806%2526bt%253D43%2526bn%253D8%2526pz%253D0%2526nid%253D0%2526ref%253Dhttps%253A%25252f%25252fturbo.az%25252fsession%25252fnew%25253forigin%25253d%2525252Fautos%2526custom%253D%2526xpid%253DD-BUbmU9Og2A4y7hHusF7s1XePIGeTqneBM5CT8jD-3D3InXaFuByzKaZWmXo09IqvHJki5NOV5n1yT56s35Kk-TSQcwZ1g%2526rleurl%253D%26CompPath%3Dhttps%253A//servers1.adriver.ru/images/0007218/0007218806/0/%26ar_pass%3D"></iframe></div></div>
+    </div>
+</div>
+<hr style="color:darkgray; text-align:center; align-self:center" class="col-md-8" />
+<form style="margin-left:50px" asp-controller="Login" asp-action="AdminAuth" method="post">
+       
+        <div class="form-group row">
+            <label for="Email" class="col-sm-2 col-form-label">Email</label>
+            <div class="col-sm-3">
+                <input type="email"  class="form-control" id="Email" asp-for="Email">
+            </div>
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+        <div class="form-group row">
+            <label for="inputPassword" class="col-sm-2 col-form-label">Şifrə</label>
+            <div class="col-sm-3">
+                <input type="password" class="form-control" id="inputPassword" asp-for="Password">
+            </div>
+            <span asp-validation-for="Password" class="text-danger"></span>
+        </div>
+    
+        <div class="form-check" style="margin-left:230px">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1" asp-for="Remember">
+            <label class="form-check-label" for="exampleCheck1">Xatırla</label>
+        </div>
+    <input type="submit"  value="Daxil ol" class="btn btn-primary" style="margin-left: 230px;">
+</form>

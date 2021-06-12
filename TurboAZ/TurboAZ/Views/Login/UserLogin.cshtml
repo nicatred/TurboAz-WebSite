@@ -1,0 +1,102 @@
+﻿@model LoginUserModel
+@{
+    Layout = null;
+}
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Turbo.Az- Avtomobilləri burada seçirlər</title>
+
+
+    <link href="~/css/UserLoginCss.css" rel="stylesheet" />
+    <link href="~/twitter-bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/font-awesome/css/all.min.css" rel="stylesheet" />
+</head>
+<body>
+    <form method="post" asp-controller="Login" asp-action="UserRegister">  
+        <div style=" margin-left:90%;margin-top:70px;">
+            <a asp-controller="Ads" asp-action="Index"><i class="far fa-times-circle fa-3x"></i></a>
+        </div>
+
+        <div id="login-index-box">
+            <h3>Kabinetə giriş</h3>
+
+            <span id="error" class="text-danger"></span>
+            <input id="phone-field" type="text" maxlength="15" value="(0" asp-for="@Model.PhoneNumber">
+            @*<span asp-validation-for="@Model.PhoneNumber" class="text-danger"></span>*@
+            @*<span id="phone-fiel-info"></span>*@
+            <a asp-controller="Login" asp-action="UserRegister"> <button id="user-btn">SMS-kod göndərilsin</button> </a><br>
+            @*<div asp-validation-summary="ModelOnly"></div>*@
+        </div>
+    </form>
+</body>
+<script src="~/font-awesome/js/all.min.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#phone-field').keyup(function (e) {
+            if (e.keyCode != 8) {
+                if ($('#phone-field').val().length == 4) {
+                    switch ($('#phone-field').val()) {
+                        case '(099':
+                            var current = $('#phone-field').val();
+                            $('#phone-field').val(current + ') ');
+                            break;
+                        case '(099':
+                            var current = $('#phone-field').val();
+                            $('#phone-field').val(current + ') ');
+                            break;
+                        case '(055':
+                            var current = $('#phone-field').val();
+                            $('#phone-field').val(current + ') ');
+                            break;
+                        case '(050':
+                            var current = $('#phone-field').val();
+                            $('#phone-field').val(current + ') ');
+                            break;
+                        case '(051':
+                            var current = $('#phone-field').val();
+                            $('#phone-field').val(current + ') ');
+                            break;
+                        case '(070':
+                            var current = $('#phone-field').val();
+                            $('#phone-field').val(current + ') ');
+                            break;
+                        case '(077':
+                            var current = $('#phone-field').val();
+                            $('#phone-field').val(current + ') ');
+                            break;
+                        default:
+                            var current = $('#phone-field').val();
+                            $('#phone-field').val(current + ') ');
+                            $('#error').html('Daxil edilən operator kodu yanlışdır');
+                            break;
+                    }
+                }
+                if ($('#phone-field').val().length == 9) {
+                    var current = $('#phone-field').val();
+                    $('#phone-field').val(current + '-');
+
+                }
+                if ($('#phone-field').val().length == 12) {
+                    var current = $('#phone-field').val();
+                    $('#phone-field').val(current + '-');
+
+                }
+
+            }
+
+
+            if ($('#phone-field').val().length <= 2) {
+                $('#phone-field').val('(0');
+            }
+        });
+    });
+
+
+</script>
+<script>document.getElementById("phone-field").defaultValue = "(0";</script>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+</html>

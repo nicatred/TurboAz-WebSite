@@ -1,0 +1,163 @@
+﻿@model DetailViewModel
+
+
+<div class="container" style="margin-top:20px;">
+    <div id="car-photos">
+        <div class="row">
+            @foreach (var item in Model.ImageUrl)
+            {
+                if (item.ImageTypeId == 1)
+                {
+                    <div class="detail-photo-main col-md-2"><img style="height:100%;width:300px" src="/Adimg/@item.ImageUrl"/></div>
+                }
+            }
+
+
+
+        <div class="col-md-12">
+          
+                @foreach (var item in Model.ImageUrl)
+                {
+                    if (item.ImageTypeId > 1)
+                    {<div class="col-md-2 detail-photo"><img style="height:100%;width:180px" src="/Adimg/@item.ImageUrl" /></div>}
+                }
+            
+        </div>
+        </div>
+        
+    </div>
+    <div class="detail-car-info-div">
+        <span class="detail-car-price">@Model.Price @Model.Valute</span>
+        <span class="detail-car-title">@Model.Brand @Model.Model, @Model.EngineVolume L,@Model.Year il,@Model.Walk km </span>
+        <ul class="detail-car-title-info">
+            <li>Yeniləndi: @Model.Date</li>
+            <li>Elanın nömrəsi: @Model.AdId</li>
+        </ul>
+    </div>
+    <div>
+        <table class="table col-md-3" style="margin-left:150px;display:inline-block;">
+
+            <tbody style="display:inline-block">
+                <tr>
+                    <th scope="row">Şəhər</th>
+                    <td>@Model.City</td>
+                </tr>
+                <tr>
+                    <th scope="row">Marka</th>
+                    <td>@Model.Brand</td>
+                </tr>
+                <tr>
+                    <th scope="row">Model</th>
+                    <td>@Model.Model</td>
+                </tr>
+                <tr>
+                    <th scope="row">Buraxılış ili</th>
+                    <td>@Model.Year</td>
+                </tr>
+                <tr>
+                    <th scope="row">Ban növü</th>
+                    <td>@Model.Body</td>
+                </tr>
+                <tr>
+                    <th scope="row">Rəng</th>
+                    <td>@Model.Color</td>
+                </tr>
+                <tr>
+                    <th scope="row">Mühərrik</th>
+                    <td>@Model.EngineVolume L</td>
+                </tr>
+                <tr>
+                    <th scope="row">Yanacaq növü</th>
+                    <td>@Model.Fuel</td>
+                </tr>
+                <tr>
+                    <th scope="row">Yürüş</th>
+                    <td>@Model.Walk km</td>
+                </tr>
+                <tr>
+                    <th scope="row">Sürətlər qutusu</th>
+                    <td>@Model.GearBox</td>
+                </tr>
+                <tr>
+                    <th scope="row">Ötürücü</th>
+                    <td>@Model.Transmission</td>
+                </tr>
+                <tr>
+                    <th scope="row">Qiymət</th>
+                    <td style="color:red; font-weight:bold">@Model.Price @Model.Valute</td>
+                </tr>
+                <tr>
+                    @if (Model.CreditHave)
+                    {
+                        <td>Kreditdədir</td>
+                    }
+                </tr>
+                <tr>
+                    @if (Model.Barter == true)
+                    {
+                        <td>Barter mümkündür</td>
+                    }
+                </tr>
+            </tbody>
+        </table>
+        <ul class="col-md-3" style="display:inline; margin-top:20px; float:right;" id="bools">
+            @if (Model.AlloyWheels)
+            {
+                <li>Yüngül lehimli disklər</li>
+            }
+            @if (Model.Abs)
+            {
+                <li>Abs</li>
+            }
+            @if (Model.Lyuk)
+            {
+                <li>Lyuk</li>
+            }
+            @if (Model.RainSensor)
+            {
+                <li>Yağış sensoru</li>
+            }
+            @if (Model.CentralClosure)
+            {
+                <li>Mərkəzi qapanma</li>
+            }
+            @if (Model.ParkRadar)
+            {
+                <li>Park radarı</li>
+            }
+            @if (Model.Conditioner)
+            {
+                <li>Kondisioner</li>
+            }
+            @if (Model.SeatHeating)
+            {
+                <li>Oturacaqların isidilməsi</li>
+            }
+            @if (Model.LeatherSalon)
+            {
+                <li>Dəri salon</li>
+            }
+            @if (Model.XenonLamps)
+            {
+                <li>Ksenon lampalar</li>
+            }
+            @if (Model.RearCamera)
+            {
+                <li>Arxa görüntü kamerası</li>
+            }
+            @if (Model.SideCurtains)
+            {
+                <li>Yan pərdələr</li>
+            }
+            @if (Model.SeatVent)
+            {
+                <li>Oturacaqların  ventilyasiyası</li>
+            }
+            <hr />
+            @if(Model.Note!=null)
+            {
+                <span col-md-2>@Model.Note</span>
+            }
+        </ul>
+    </div>
+</div>

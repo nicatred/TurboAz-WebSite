@@ -1,0 +1,130 @@
+﻿@model HomeAdAndSearchViewModel
+
+<form method="post" asp-controller="">
+    <div class="thirdNav">
+
+        <ul>
+            <li>
+                <select class="input-normal" id="comboboxBrands" asp-for="@Model.fillSelectViewModel.Ad.BrandId" asp-items="@(new SelectList(@Model.fillSelectViewModel.Brands,"BrandId","BrandName"))">
+                    <option selected>Bütün markalar</option>
+                </select>
+            </li>
+            <li>
+                <select class="input-normal" @*asp-for="@Model.FirstOrDefault().fillSelectViewModel.Ad.ModelId"*@ id="comboboxModels">
+                    <option>Bütün modellər</option>
+                </select>
+            </li>
+        </ul>
+        <ul>
+            <li id="Cost">
+                <label class="price">Qiymət</label>
+                <select class="currency" asp-for="@Model.fillSelectViewModel.Ad.ValuteId" asp-items="@(new SelectList(@Model.fillSelectViewModel.Valutes,"ValuteId","ValuteName"))">
+                    
+                </select>
+                
+                <input class="input-number-min" type="text" id="number" name="number" placeholder="min.">
+                <input class="input-number-max" type="text" id="number" name="number" placeholder="maks.">
+            </li>
+            <li>
+                <label class="year">Buraxılış ili</label>
+                <input class="input-number-min2" type="text" id="number" name="number" placeholder="min.">
+                <input class="input-number-max2" type="text" id="number" name="number" placeholder="maks.">
+            </li>
+        </ul>
+
+        <ul>
+            <li>
+                <div class="form-check" id="div-credit">
+                    <label class="form-check-label" for="check-credit" id="label-credit">
+                        Kredit<input class="form-check-input" type="checkbox" value="" id="check-credit" checked>
+                    </label>
+                </div>
+            </li>
+            <li>
+                <div class="form-check" id="div-barter">
+                    <label class="form-check-label" for="check-barter" id="label-barter">
+                        Barter<input class="form-check-input" type="checkbox" value="" id="check-barter" checked>
+                    </label>
+                </div>
+            </li>
+
+        </ul>
+
+
+        <ul>
+            <li>
+                <select class="input-normal" asp-items="@(new SelectList(@Model.fillSelectViewModel.Cities,"CityId","CityName"))" size="1" asp-for="@Model.fillSelectViewModel.Ad.CityId">
+                    <option>Bütün şəhərlər</option>
+                </select>
+            </li>
+            <li>
+                <div id="count-div"> <a id="count-addvertise">@Model.homeAdViewModels.Count</a></div>
+            </li>
+        </ul>
+
+
+        <ul>
+            <li>
+                <button id="button-search" type="submit">Axtar</button>
+            </li>
+            <li>
+                <input id="button-search-all" type="submit" asp-controller="Detail" asp-action="Index" value="Ətraflı axtarış">
+            </li>
+        </ul>
+
+    </div>
+</form>
+
+
+<div class="container pt-2">
+    <div class="row">
+        @foreach (var item in Model.homeAdViewModels)
+        {
+            <a asp-controller="Ads" asp-action="Detail" asp-route-AdId="@item.AdId">
+                <div class="col-md-3 advercars">
+                    <div class="card" style="margin:15px">
+                        <img class="card-img-top" src="/Adimg/@item.ImageName" alt="mashin" style="height:200px ;width:100%;" />
+                        <a class="heart"><i class="liked far fa-heart fa-2x"></i></a>
+                        <span class="car-price">@item.Price @item.Valute</span>
+                        <div class="card-body">
+                            <h5 class="card-title">@item.Brand @item.Model</h5>
+                            <p class="card-text">@item.Year il @item.EngineVolume L @item.Walk km</p>
+                            <p class="card-text" id="card-text2">@item.City , @item.Date</p>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        }
+
+        @*<script>
+            $(".heart").click(ontop);
+            function ontop() {
+
+                $(this).find('i').toggleClass('fas fa-heart');
+            }
+        </script>*@
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script>
+        $(document).ready(function () {
+            $('#comboboxBrands').on('change', function () {
+                $('#comboboxModels option').remove();
+                var brandId = $('#comboboxBrands option:selected').val();
+                if (brandId != -1) {
+                    $.ajax({
+                        type: 'Get',
+                        url: '@Url.Action("GetModels","Ads")/?brandId=' + brandId,
+                        success: function (result) {
+                            var s = '<option value="-1">Select a Model</option>';
+                            for (var i = 0; i < result.length; i++) {
+                                s += '<option value="' + result[i].id + '">' + result[i].name + '</option>';
+                            }
+                            $('#comboboxModels').html(s);
+                        }
+                    });
+                }
+
+            });
+        });
+        </script>
+    </div>
+</div>

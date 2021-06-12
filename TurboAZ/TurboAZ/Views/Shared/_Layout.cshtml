@@ -1,0 +1,117 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Turbo.Az- Avtomobilləri burada seçirlər</title>
+
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/twitter-bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/css/detail-search.css" rel="stylesheet" />
+    <link href="~/css/StyleSheet.css" rel="stylesheet" />
+    <link href="~/css/addadvertise.css" rel="stylesheet" />
+    <link href="~/font-awesome/css/all.min.css" rel="stylesheet" />
+    <link href="~/css/detail-car.css" rel="stylesheet" />
+
+</head>
+
+<body>
+
+    <div class="lotriver-top-banner" id="js-lotriver-top-banner">
+        <div style="visibility:hidden;height:0px;left:-1000px;position:absolute;">
+            <iframe id="ar_container_1" width="1"
+                    height="1" marginwidth="0" marginheight="0" scrolling="no" frameborder="0"></iframe>
+        </div>
+        <div id="ad_ph_1" style="display: block; width: 100%; height: 120px;">
+            <div style="display:block;width:100%;height:100%;margin:0 auto;line-height:100%;text-align:center;">
+                <iframe id="ar_cr_1310004" width="100%" height="100%" marginwidth="0" marginheight="0" scrolling="no"
+                        vspace="0" hspace="0" frameborder="0"
+                        src="https://servers4.adriver.ru/images/0007134/0007134891/0/cs85_2000x120upd.html?html_params=target%3D_blank%26rhost%3Dad.adriver.ru%26bid%3D7134891%26sid%3D220552%26width%3D100%25%26height%3D120%26rnd%3D39948214%26pz%3D0%26ad%3D718208%26bt%3D43%26bn%3D6%26ar_sliceid%3D2715798%26ntype%3D0%26nid%3D0%26ar_geoid%3D378%26xpid%3DDTqC881YVd22FzTpfXnoRBoW8U4rmBklwUX9AlXpEnshs2Gpc_oIOwxgnSK69ubhQrFz6xvtPVJmoJnfBClAdJx0OW-k%26url%3Dhttps%253A//ad.adriver.ru/cgi-bin/click.cgi%253Fsid%253D220552%2526ad%253D718208%2526bid%253D7134891%2526bt%253D43%2526bn%253D6%2526pz%253D0%2526nid%253D0%2526ref%253Dhttps%253A%25252f%25252fturbo.az%25252f%2526custom%253D%2526xpid%253DDTqC881YVd22FzTpfXnoRBoW8U4rmBklwUX9AlXpEnshs2Gpc_oIOwxgnSK69ubhQrFz6xvtPVJmoJnfBClAdJx0OW-k%2526rleurl%253D%26CompPath%3Dhttps%253A//servers4.adriver.ru/images/0007134/0007134891/0/%26ar_pass%3D"></iframe>
+            </div>
+        </div>
+    </div>
+    <div id="header">
+        <div id="header-bar">
+            <a id="header-bar-i_home" class="header-box" asp-controller="Ads" asp-action="Index">
+                <div id="button-home"><b>TURBO.AZ</b></div>
+                <div id="button-home-slogan"><b>MAŞIN ALQI-SATQISI</b></div>
+            </a>
+            <span id="support-phone-label" class="support-phone">Dəstək xidməti:</span>
+            <span id="support-phone-list" class="support-phone">(012) 599-08-01; (012) 505-77-55</span>
+            <a id="language-change">по-русски</a>
+            <a class="far fa-heart"></a>
+            <a class="head-txt">Seçilmişlər</a>
+           @if (ViewBag.User == null)
+           {
+            <img id="person" src="/img/person.png" alt="person" width="50px" height="60px">
+            <a class="head-txt" asp-controller="Login" asp-action="Index">Giriş</a>
+            }
+            else
+            {
+              <span>@ViewBag.User.PhoneNumber</span>
+            }
+        </div>
+        <div id="header-tabs">
+
+            <div id="binaaz" class="header-box header-box-other">
+                <a>BINA.AZ</a>
+            </div>
+            <div id="tapaz" class="header-box header-box-other">
+                <a>TAP.AZ</a>
+            </div>
+            <div id="bossaz" class="header-box header-box-other">
+                <a>BOSS.AZ</a>
+            </div>
+
+
+
+
+
+
+
+        </div>
+        <div id="header-nav">
+            <div id="section">
+                <nav id="header-nav-parent">
+                    <a>Bütün elanlar</a>
+                    <a>Avtosalonlar</a>
+                    <a>Mağazalar və şirkətlər</a>
+                    <a id="header-nav-child-button">Ehtiyat hissələri və aksesuarlar</a>
+                    <ul id="header-nav-child">
+                        <li><a>Aksesuarlar</a></li>
+                        <li><a>Audio və video texnika</a></li>
+                        <li><a>Avtokosmetika və avtokimya</a></li>
+                        <li><a>Ehtiyat hissələri</a></li>
+                        <li><a>Gps Navigatorlar</a></li>
+                        <li><a>Qeydiyyat nişanları</a></li>
+                        <li><a>Siqnalizasiyalar</a></li>
+                        <li><a>Videoqeydiyyatçılar</a></li>
+                        <li><a>Şinlər,disk və təkərlər</a></li>
+                        <li><a>Digər</a></li>
+                    </ul>
+
+                    <a id="add-advertise-btn" href="/ADS/New">
+                        <i id="circle-plus" class="fas fa-plus-circle fa-1x"></i>
+                        <span id="add-advertise-label">Elan yerləşdir</span>
+                    </a>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    @RenderBody();
+
+
+
+
+</body>
+<footer>
+</footer>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+@await RenderSectionAsync("scripts", false);
+
+</html>

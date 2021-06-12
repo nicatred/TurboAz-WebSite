@@ -1,0 +1,48 @@
+﻿body {
+    background-color :#f1f3f7;
+}
+#login-index-box {
+    text-align: center;
+    align-self: center;
+    height: 300px;
+    width: 400px;
+    background-color: #ffffff;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px;
+    border: 1px solid #eaebf2;
+    box-shadow: 0 2px 8px 0 #eaebf2;
+    border-radius: 3px;
+   
+}
+#login-box-info {
+    color: #a6abb4;
+    font-size:18px;
+    display:block;
+
+}
+#user-btn {
+    background-color: #4b8af9;
+    border: #4b8af9 1px solid;
+    width: 300px;
+    height: 60px;
+    margin-top: 20px ;
+    border-radius:4px;
+    color:white;
+}
+#admin-btn {
+    background-color: white;
+    border: #4b8af9 1px solid;
+    color: #4b8af9;
+    margin-top: 20px;
+    width: 300px;
+    height: 60px;
+    border-radius: 4px;
+}
+#footer-info {
+    color: #a6abb4;
+    font-size: 15px;
+    display: block;
+    margin-top:100px;
+    text-align:center;
+}

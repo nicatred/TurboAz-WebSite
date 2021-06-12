@@ -1,0 +1,239 @@
+﻿@model FillSelectViewModel
+<form method="post">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <ul>
+                    <li>
+                        <label class="label">Marka</label>
+                        <select class="input-normal2">
+                            <option selected>Bütün markalar</option>
+                        </select>
+                    </li>
+                    <li>
+                        <label class="label">Model</label>
+                        <select class="input-normal2">
+                            <option selected>Bütün modellər</option>
+                            
+                        </select>
+                    </li>
+                    <li>
+                        <label class="label">Ban növü</label>
+                        <select class="input-normal2">
+                            <option selected>Bütün tiplər</option>
+                        </select>
+                    </li>
+                    <li>
+                        <label class="label">Rəng</label>
+                        <select class="input-normal2">
+                            <option selected>Bütün</option>
+                        </select>
+                    </li>
+                    <li>
+                        <label class="label">Yürüş,km</label>
+                        <label class="label-small">min.</label>
+                        <input type="text" class="input-text col-md-2">
+                        <label class="label-small">max.</label>
+                        <input type="text" class="input-text col-md-2">
+
+                    </li>
+                    <li>
+                        <label class="label" style="width: 60px;margin-top: 40px;">Qiymət</label>
+                        <select class="currency2">
+                            <option>AZN</option>
+                            <option>USD</option>
+                            <option>EUR</option>
+                        </select>
+                        <label class="label-small">min.</label>
+                        <input type="text" class="input-text col-md-2">
+                        <label class="label-small">max.</label>
+                        <input type="text" class="input-text col-md-2">
+                    </li>
+                    <li id="checks1">
+                        <input type="checkbox" value="" id="check-credit">
+                        <label for="flexCheckDefault">
+                            Kredit
+                        </label>
+                    </li>
+                    <li id="checks2">
+                        <input type="checkbox" value="" id="check-barter">
+                        <label for="flexCheckDefault">
+                            Barter
+                        </label>
+                    </li>
+                    <li>
+                        <h5 style="margin-top: 15px;">Avtomobilin təchizatı</h5>
+                    </li>
+                    <li class="checks1">
+
+                        <input type="checkbox" value="" id="check-credit">
+                        <label for="flexCheckDefault">
+                            Yüngül lehimli disklər
+                        </label>
+
+                        <span id="sub-check1">
+                            <input type="checkbox" value="" id="check-credit">
+                            <label for="flexCheckDefault">
+                                ABS
+                            </label>
+                        </span>
+                    </li>
+                    </li>
+                    <li class="checks2">
+
+                        <input type="checkbox" value="" id="check-barter">
+                        <label for="flexCheckDefault">
+                            Mərkəzi qapanma
+                        </label>
+
+
+                        <span id="sub-check2">
+                            <input type="checkbox" value="" id="check-credit">
+                            <label for="flexCheckDefault">
+                                Park radarı
+                            </label>
+                        </span>
+                    </li>
+                    <li class="checks2">
+
+                        <input type="checkbox" value="" id="check-barter">
+                        <label for="flexCheckDefault">
+                            Dəri salon
+                        </label>
+
+                        <span id="sub-check3">
+                            <input type="checkbox" value="" id="check-credit">
+                            <label for="flexCheckDefault">
+                                Ksenon lampalar
+                            </label>
+                        </span>
+                    </li>
+                    <li class="checks2">
+                        <input type="checkbox" value="" id="check-barter">
+                        <label for="flexCheckDefault">
+                            Oturacaqların ventilyasiyası
+                        </label>
+                    </li>
+                    <li>
+                        <h5 style="margin-top: 15px;">Axtarışın nəticələri</h5>
+                    </li>
+                    <li>
+                        <label class="label">Çeşidləmə</label>
+                        <select class="input-normal2">
+                            <option selected>Tarixə görə</option>
+                        </select>
+                    </li>
+                    <li>
+                        <input type="submit" id="btn-search" value="Axtar" asp-controller="Search" asp-action="Index">
+                    </li>
+                </ul>
+
+            </div>
+            <div class="col-md-6">
+                <ul>
+                    <li>
+                        <label class="label">Şəhər</label>
+                        <select class="input-normal2">
+                            <option selected>Bütün şəhərlər</option>
+                        </select>
+                    </li>
+                    <li>
+                        <label class="label">Yanacaq növü</label>
+                        <select class="input-normal2">
+                            <option selected>Bütün tiplər</option>
+                        </select>
+                    </li>
+                    <li>
+                        <label class="label">Ötürücü</label>
+                        <select class="input-normal2">
+                            <option selected>Bütün tiplər</option>
+                        </select>
+                    </li>
+                    <li>
+                        <label class="label">Sürətlər qutusu</label>
+                        <select class="input-normal2">
+                            <option selected>Bütün</option>
+                        </select>
+                    </li>
+                    <li>
+                        <label class="label">Buraxılış ili</label>
+                        <label class="label-small">min.</label>
+                        <input type="text" class="input-text col-md-2">
+                        <label class="label-small">max.</label>
+                        <input type="text" class="input-text col-md-2">
+
+                    </li>
+                    <li>
+                        <label class="label" style="width: 150px;margin-top: 10px;">Mühərrikin həcmi, sm3</label>
+
+                        <label class="label-small">min.</label>
+                        <select class="input-motor col-md-2">
+                            <option selected>0</option>
+                        </select>
+                        <label class="label-small">max.</label>
+                        <select class="input-motor col-md-2">
+                            <option selected>0</option>
+                        </select>
+                    </li>
+                   
+
+                    <li class="checks1" style="margin-top: 155px;">
+
+                        <input type="checkbox" value="" id="check-credit">
+                        <label for="flexCheckDefault">
+                            Lyuk
+                        </label>
+
+                        <span id="sub-check1" style="margin-left:175px">
+                            <input type="checkbox" value="" id="check-credit">
+                            <label for="flexCheckDefault">
+                                Yağış sensoru
+                            </label>
+                        </span>
+                    </li>
+                    </li>
+                    <li class="checks2">
+
+                        <input type="checkbox" value="" id="check-barter">
+                        <label for="flexCheckDefault">
+                            Kondisioner
+                        </label>
+
+
+                        <span id="sub-check2"  style="margin-left:124px">
+                            <input type="checkbox" value="" id="check-credit">
+                            <label for="flexCheckDefault">
+                                Oturacaqların isidilməsi
+                            </label>
+                        </span>
+                    </li>
+                    <li class="checks2">
+
+                        <input type="checkbox" value="" id="check-barter">
+                        <label for="flexCheckDefault">
+                            Arxa görüntü kamerası
+                        </label>
+
+                        <span id="sub-check3" style="margin-left:47px">
+                            <input type="checkbox" value="" id="check-credit" >
+                            <label for="flexCheckDefault">
+                                Yan pərdələr
+                            </label>
+                        </span>
+                    </li>
+                   
+                   
+                    <li style="margin-top: 50px;">
+                        <label class="label">Avtomobilləri göstər</label>
+                        <select class="input-normal2">
+                            <option selected>Bütün</option>
+                        </select>
+                    </li>
+
+                </ul>
+
+            </div>
+        </div>
+
+    </div>
+</form>

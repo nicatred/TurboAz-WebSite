@@ -1,0 +1,26 @@
+﻿@{ 
+    Layout=null;
+}
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Turbo.Az- Avtomobilləri burada seçirlər</title>
+
+    <link href="~/css/LoginIndexCss.css" rel="stylesheet" />
+    <link href="~/twitter-bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/font-awesome/css/all.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div style=" margin-left:90%;margin-top:70px;">
+        <a asp-controller="Ads" asp-action="Index"><i class="far fa-times-circle fa-3x"></i></a>
+    </div>
+
+    <div id="login-index-box">
+        <h1>TURBO.AZ</h1>
+        <span id="login-box-info">Öz elanlarınıza baxmağın, onları redaktə və bərpa etməyin rahat yolu</span>
+        <a asp-controller="Login" asp-action="UserLogin"><button id="user-btn">Telefon nömrəsi ilə giriş</button></a><br>
+        <a asp-controller="Login" asp-action="AdminLogin" ><button id="admin-btn">Biznes hesabına giriş</button></a>
+    </div>
+    <span id="footer-info">Saytda avtorizasiyadan keçməklə siz Turbo.az-ın İstifadəçi razılaşmasını və Qaydalarını qəbul etdiyinizi təsdiqləmiş olursunuz.</span>
+</body>
+<script src="~/font-awesome/js/all.min.js"></script>
+</html>

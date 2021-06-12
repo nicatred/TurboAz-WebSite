@@ -1,0 +1,17 @@
+C:\Users\Nijatred\source\repos\TurboAZ\TubroAZ.Businnes\bin\Debug\net5.0\TubroAZ.Businnes.deps.json
+C:\Users\Nijatred\source\repos\TurboAZ\TubroAZ.Businnes\bin\Debug\net5.0\TubroAZ.Businnes.dll
+C:\Users\Nijatred\source\repos\TurboAZ\TubroAZ.Businnes\bin\Debug\net5.0\ref\TubroAZ.Businnes.dll
+C:\Users\Nijatred\source\repos\TurboAZ\TubroAZ.Businnes\bin\Debug\net5.0\TubroAZ.Businnes.pdb
+C:\Users\Nijatred\source\repos\TurboAZ\TubroAZ.Businnes\bin\Debug\net5.0\TurboAZ.Entity.dll
+C:\Users\Nijatred\source\repos\TurboAZ\TubroAZ.Businnes\bin\Debug\net5.0\TurboAZ.Repository.dll
+C:\Users\Nijatred\source\repos\TurboAZ\TubroAZ.Businnes\bin\Debug\net5.0\TurboAZ.Entity.pdb
+C:\Users\Nijatred\source\repos\TurboAZ\TubroAZ.Businnes\bin\Debug\net5.0\TurboAZ.Repository.pdb
+C:\Users\Nijatred\source\repos\TurboAZ\TubroAZ.Businnes\obj\Debug\net5.0\TubroAZ.Businnes.csprojAssemblyReference.cache
+C:\Users\Nijatred\source\repos\TurboAZ\TubroAZ.Businnes\obj\Debug\net5.0\TubroAZ.Businnes.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Nijatred\source\repos\TurboAZ\TubroAZ.Businnes\obj\Debug\net5.0\TubroAZ.Businnes.AssemblyInfoInputs.cache
+C:\Users\Nijatred\source\repos\TurboAZ\TubroAZ.Businnes\obj\Debug\net5.0\TubroAZ.Businnes.AssemblyInfo.cs
+C:\Users\Nijatred\source\repos\TurboAZ\TubroAZ.Businnes\obj\Debug\net5.0\TubroAZ.Businnes.csproj.CoreCompileInputs.cache
+C:\Users\Nijatred\source\repos\TurboAZ\TubroAZ.Businnes\obj\Debug\net5.0\TubroAZ.Businnes.csproj.CopyComplete
+C:\Users\Nijatred\source\repos\TurboAZ\TubroAZ.Businnes\obj\Debug\net5.0\TubroAZ.Businnes.dll
+C:\Users\Nijatred\source\repos\TurboAZ\TubroAZ.Businnes\obj\Debug\net5.0\ref\TubroAZ.Businnes.dll
+C:\Users\Nijatred\source\repos\TurboAZ\TubroAZ.Businnes\obj\Debug\net5.0\TubroAZ.Businnes.pdb
